@@ -36,9 +36,17 @@
                 <h4 class="m-3">Article Lists</h4>
 
             </div>
+            @if (session('created'))
+                <div class="col-4 offset-8">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa-solid fa-check"></i> {{ session('created') }}
+                    </div>
+                </div>
+            @endif
             <div class="d-flex">
                 <small class="mt-2 ms-2 text-muted bold">Total Articles - {{ count($data) }}</small>
-                <a href="" class="btn ms-2" style="background-color: #48D1CC;">Add Article</a>
+                <a href="{{ route('article.addPage') }}" class="btn ms-2" style="background-color: #48D1CC;">Add
+                    Article</a>
             </div>
             <div class="m-3">
                 {{ $data->links() }}
